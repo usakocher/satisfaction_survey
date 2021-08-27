@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>Adam Kocher's Survey</title>
+    </head>
+    <body>
+        <div class="container">
+            <img src="../static/Adam-Kocher-Logo-A.png" alt="" class="logo">
+            {% if message %}
+                <p class="message">{{ message | safe }}</p>                
+            {% endif %}
+            <form action="/submit" method = "POST">
+                <div class="form-group">
+                    <h3>Colleague Name</h3>
+                    <input type="text" name="colleague" placeholder="Name of Colleague">
+                </div>
+                <div class="form-group">
+                    <h3>Role</h3>
+                    <select name="role">
+                        <option value="">Select Role</option>
+                        <option value="Instructor">Instructor</option>
+                        <option value="Teaching Assistant">Teaching Assistant</option>
+                        <option value="Fellow Student">Fellow Student</option>
+                    </select>
+                </div>
+                <p>Please answer the following questions on a scale of 1 to 5, 1 being least satisfied, 5 being most satisfied, 3 being no strong feelings.</p>
+                <div class="form-group">
+                    <h3>How helpful is Adam as a colleague?</h3>
+                    <input type="radio" name="helpful" value="1" /> 1
+                    <input type="radio" name="helpful" value="2" /> 2
+                    <input type="radio" name="helpful" value="3" checked /> 3
+                    <input type="radio" name="helpful" value="4" /> 4
+                    <input type="radio" name="helpful" value="5" /> 5
+                </div>
+                <div class="form-group">
+                    <h3>Are you satisfied with Adam's level of commitment?'</h3>
+                    <input type="radio" name="commitment" value="1" /> 1
+                    <input type="radio" name="commitment" value="2" /> 2
+                    <input type="radio" name="commitment" value="3" checked/> 3
+                    <input type="radio" name="commitment" value="4" /> 4
+                    <input type="radio" name="commitment" value="5" /> 5
+                </div>
+                <div class="form-group">
+                    <h3>Does Adam display the necessary skills to succeed in the future?</h3>
+                    <input type="radio" name="skills" value="1" /> 1
+                    <input type="radio" name="skills" value="2" /> 2
+                    <input type="radio" name="skills" value="3" checked /> 3
+                    <input type="radio" name="skills" value="4" /> 4
+                    <input type="radio" name="skills" value="5" /> 5
+                </div>
+                <div class="form-group">
+                    <h3>What is your overall level of satisfication with Adam as a colleague?</h3>
+                    <input type="radio" name="overall" value="1" /> 1
+                    <input type="radio" name="overall" value="2" /> 2
+                    <input type="radio" name="overall" value="3" checked /> 3
+                    <input type="radio" name="overall" value="4" /> 4
+                    <input type="radio" name="overall" value="5" /> 5
+                </div>
+                <div class="form-group">
+                    <h3>Comments about your experience</h3>
+                    <textarea
+                        name="comments"
+                        id=""
+                        cols="30"
+                        rows="10"
+                        placeholder="Tell us what you liked and/or did not like"
+                    ></textarea>
+                </div>
+                <input type="submit" value="Submit" class="btn" />
+            </form>
+        </div>
+    </body>
+</html>
